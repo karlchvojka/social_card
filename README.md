@@ -3,12 +3,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Social Card
 This is a practice project for Karl Chvojka.
 
-## Goals
+## MVP
 - Create a social card in the same design as other popular cards.
 - The card will pull in from a JS object
 - Can be repeated if there is multiple
 - Uses scss
 - Follows Atomic Design Principles.
+
+## Stretch Goals
+- Pulls from Twitter or other Social Network
 
 ## Available Scripts
 
