@@ -1,7 +1,18 @@
-import React from 'react';
- import './App.scss';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './App.scss';
 
 function App() {
+  let [user, setUser] = useState({});
+
+  useEffect(() => {
+   axios
+     .get("https://randomuser.me/api")
+     .then(result => setUser(result.data.results[0]));
+   }, []);
+
+   console.log(user.picture.thumbnail)
+
   return (
     <div className="App">
       <header><h1>Social Card</h1></header>
@@ -9,7 +20,9 @@ function App() {
         <article>
           <section className="social_Card_Wrap">
             <aside className="image_Wrap">
-              { /* TODO: Add profile image of the user */ }
+              { /* TODO: Add profile image of the user */
+
+              }
             </aside>
             <article className="social_Card">
               <header className="user_profile">
