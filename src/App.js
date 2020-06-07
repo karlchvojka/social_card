@@ -3,15 +3,47 @@ import axios from 'axios';
 import './App.scss';
 
 function App() {
-  let [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    firstName: '',
+    lastName: '',
+    userName: '',
+    picture: '',
+    thumb: ''
+  });
+
+  const [post, setPost] = useState({
+    postTitle: 'This is a post title',
+    postAuth: "@KarlChvojka",
+    postDate: "Oct 15",
+    postImg: "/developer.jpeg",
+    postComments: 2,
+    postRetweets: 20,
+    postLikes: 5000
+  })
 
   useEffect(() => {
-   axios
-     .get("https://randomuser.me/api")
-     .then(result => setUser(result.data.results[0]));
-   }, []);
+    const fetchUser = async () => {
+      const result = await axios(
+        "https://randomuser.me/api",
+      );
+      // set resource for reference purposes.
+      let resource = result.data.results[0];
+      // Set current User state
+      setUser({
+        firstName: resource.name.first,
+        lastName: resource.name.last,
+        userName: resource.login.username,
+        picture: resource.picture.large,
+        thumb: resource.picture.thumbnail
+      });
 
-   console.log(user.picture.thumbnail)
+      // here for API reference.
+      // TODO: Remove before publishing
+      console.log(resource)
+    };
+
+    fetchUser();
+   }, []);
 
   return (
     <div className="App">
@@ -20,9 +52,7 @@ function App() {
         <article>
           <section className="social_Card_Wrap">
             <aside className="image_Wrap">
-              { /* TODO: Add profile image of the user */
-
-              }
+              <img src={user.thumb} alt='Thumnail for {user.firstName} {user.lastName}' />
             </aside>
             <article className="social_Card">
               <header className="user_profile">
@@ -35,9 +65,11 @@ function App() {
                   5. If a repost, the name of the original author.
                   */
                 }
+
               </header>
               <section className="post_Image">
                 { /* TODO: Add image representation of the post. Could be OG image/other */ }
+                
               </section>
               <section>
                 { /*
