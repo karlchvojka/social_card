@@ -3,13 +3,7 @@ import axios from 'axios';
 import './App.scss';
 
 function App() {
-  const [user, setUser] = useState({
-    firstName: '',
-    lastName: '',
-    userName: '',
-    picture: '',
-    thumb: ''
-  });
+  const [user, setUser] = useState({});
 
   const [post, setPost] = useState({
     postTitle: 'This is a post title',
@@ -46,7 +40,8 @@ function App() {
    }, []);
 
   return (
-    <div className="App">
+     user.firstName ?
+     <div className="App">
       <header><h1>Social Card</h1></header>
       <main>
         <article>
@@ -56,20 +51,13 @@ function App() {
             </aside>
             <article className="social_Card">
               <header className="user_profile">
-                { /*
-                  TODO: Add information about the posting user
-                  1. The full name of the user
-                  2. The nickname version of the user
-                  3. The date the post was made.
-                  4. Title of the post
-                  5. If a repost, the name of the original author.
-                  */
-                }
-
+                <p><b>The Dev Blog</b> @{user.userName} &middot; {post.postDate}</p>
+                <p>{post.postTitle}</p>
+                <p>{'{'} author: {post.postAuth} {'}'}</p>
               </header>
               <section className="post_Image">
                 { /* TODO: Add image representation of the post. Could be OG image/other */ }
-                
+                <img src={post.postImg} />
               </section>
               <section>
                 { /*
@@ -93,6 +81,9 @@ function App() {
         </article>
       </main>
     </div>
+    :
+    <h2>nothin</h2>
+
   );
 }
 
