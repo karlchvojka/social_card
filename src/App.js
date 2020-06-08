@@ -2,97 +2,85 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.scss';
 
+const fetchUser = async (setUser) => {
+  const result = await axios(
+    "https://randomuser.me/api",
+  );
+  // set resource for reference purposes.
+  let resource = result.data.results[0];
+  console.log(resource);
+  // Set current User state
+  setUser(resource);
+};
+
 function App() {
-  const [user, setUser] = useState({
-    firstName: '',
-    lastName: '',
-    userName: '',
-    picture: '',
-    thumb: ''
-  });
+  const [user, setUser] = useState({});
 
   const [post, setPost] = useState({
-    postTitle: 'This is a post title',
+    postTitle: 'Developing JS applications with ReactJS',
+    postDesc: 'ReactJS is an amazing framework.Grapple shrouds stern crack Jennys tea cup Nelsons folly coxswain Sink me reef rigging tender. Broadside run a shot across the bow jack splice the main brace black spot bucko hardtack driver hands capstan.',
+    postUrl: 'https://karl.chvojka.com/blog/post-134',
     postAuth: "@KarlChvojka",
     postDate: "Oct 15",
     postImg: "/developer.jpeg",
     postComments: 2,
-    postRetweets: 20,
-    postLikes: 5000
+    postRetweets: 23,
+    postLikes: 345
   })
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const result = await axios(
-        "https://randomuser.me/api",
-      );
-      // set resource for reference purposes.
-      let resource = result.data.results[0];
-      // Set current User state
-      setUser({
-        firstName: resource.name.first,
-        lastName: resource.name.last,
-        userName: resource.login.username,
-        picture: resource.picture.large,
-        thumb: resource.picture.thumbnail
-      });
-
-      // here for API reference.
-      // TODO: Remove before publishing
-      console.log(resource)
-    };
-
-    fetchUser();
+    fetchUser(setUser);
    }, []);
 
   return (
-    <div className="App">
-      <header><h1>Social Card</h1></header>
-      <main>
-        <article>
-          <section className="social_Card_Wrap">
-            <aside className="image_Wrap">
-              <img src={user.thumb} alt='Thumnail for {user.firstName} {user.lastName}' />
-            </aside>
-            <article className="social_Card">
-              <header className="user_profile">
-                { /*
-                  TODO: Add information about the posting user
-                  1. The full name of the user
-                  2. The nickname version of the user
-                  3. The date the post was made.
-                  4. Title of the post
-                  5. If a repost, the name of the original author.
-                  */
-                }
-
-              </header>
-              <section className="post_Image">
-                { /* TODO: Add image representation of the post. Could be OG image/other */ }
-                
-              </section>
-              <section>
-                { /*
-                  TODO: Post title
-                  TODO: Text from the post itself
-                  TODO: Show text of the homepage from the link.
-                  */
-                }
-              </section>
-              <section>
-                { /*
-                  TODO: Number Representation of the comments
-                  TODO: Number Representation of the Retweets
-                  TODO: Number Representation of the Likes.
-                  TODO: Send via DM icon.
-                  */
-                }
-              </section>
-            </article>
-          </section>
-        </article>
-      </main>
-    </div>
+    // check to see if the user obj has a first name
+    Object.keys(user).length > 0 ?
+      <div className="App">
+        <header><h1>Social Card</h1></header>
+        <main>
+          <article>
+            <section className="social_Card_Wrap">
+              <aside className="image_Wrap">
+                <img src={user.picture.thumbnail} alt={`Thumbnail for ${user.name.first} ${user.name.last}`} />
+              </aside>
+              <article className="social_Card">
+                <header className="user_profile">
+                  <p><b>The Dev Blog</b> @{user.login.username} &middot; {post.postDate}</p>
+                  <p>{post.postTitle}</p>
+                  <p>{'{'} author: {post.postAuth} {'}'}</p>
+                </header>
+                <section className="post_Image">
+                  <img src={post.postImg} />
+                </section>
+                <section>
+                  <h3>{post.postTitle}</h3>
+                  <p>{post.postDesc}</p>
+                  <p><a href={post.postUrl}>karlchvojka.com</a></p>
+                </section>
+                <section className="socialCounters">
+                  <div className="socialComments">
+                    <img src="https://img.icons8.com/metro/26/000000/comments.png" alt="Speech Bubble Icon"/>
+                    <p>{post.postComments}</p>
+                  </div>
+                  <div className="socialRetweets">
+                    <img src="https://img.icons8.com/material-sharp/24/000000/retweet.png" alt="Retweet Icon"/>
+                    <p>{post.postRetweets}</p>
+                  </div>
+                  <div className="socialLikes">
+                    <img src="https://img.icons8.com/windows/32/000000/like.png" alt="Likes Icon"/>
+                    <p>{post.postLikes}</p>
+                  </div>
+                  <div className="socialSendDM">
+                    <img src="https://img.icons8.com/windows/32/000000/secured-letter--v1.png" alt="Letter Icon"/>
+                  </div>
+                </section>
+              </article>
+            </section>
+          </article>
+        </main>
+      </div>
+    :
+      <h2>Loading...</h2>
   );
 }
 
