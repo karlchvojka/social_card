@@ -2,6 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.scss';
 
+const fetchUser = async (setUser) => {
+  const result = await axios(
+    "https://randomuser.me/api",
+  );
+  // set resource for reference purposes.
+  let resource = result.data.results[0];
+  console.log(resource);
+  // Set current User state
+  setUser(resource);
+};
+
 function App() {
   const [user, setUser] = useState({});
 
@@ -16,47 +27,27 @@ function App() {
   })
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const result = await axios(
-        "https://randomuser.me/api",
-      );
-      // set resource for reference purposes.
-      let resource = result.data.results[0];
-      // Set current User state
-      setUser({
-        firstName: resource.name.first,
-        lastName: resource.name.last,
-        userName: resource.login.username,
-        picture: resource.picture.large,
-        thumb: resource.picture.thumbnail
-      });
-
-      // here for API reference.
-      // TODO: Remove before publishing
-      console.log(resource)
-    };
-
-    fetchUser();
+    fetchUser(setUser);
    }, []);
 
   return (
-     user.firstName ?
-     <div className="App">
+    // check to see if the user obj has a first name
+    Object.keys(user).length > 0 ?
+    <div className="App">
       <header><h1>Social Card</h1></header>
       <main>
         <article>
           <section className="social_Card_Wrap">
             <aside className="image_Wrap">
-              <img src={user.thumb} alt='Thumnail for {user.firstName} {user.lastName}' />
+              <img src={user.picture.thumbnail} alt={`Thumbnail for ${user.name.first} ${user.name.last}`} />
             </aside>
             <article className="social_Card">
               <header className="user_profile">
-                <p><b>The Dev Blog</b> @{user.userName} &middot; {post.postDate}</p>
+                <p><b>The Dev Blog</b> @{user.login.username} &middot; {post.postDate}</p>
                 <p>{post.postTitle}</p>
                 <p>{'{'} author: {post.postAuth} {'}'}</p>
               </header>
               <section className="post_Image">
-                { /* TODO: Add image representation of the post. Could be OG image/other */ }
                 <img src={post.postImg} />
               </section>
               <section>
@@ -82,8 +73,7 @@ function App() {
       </main>
     </div>
     :
-    <h2>nothin</h2>
-
+    <h2>Loading...</h2>
   );
 }
 
