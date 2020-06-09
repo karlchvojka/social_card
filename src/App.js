@@ -8,6 +8,7 @@ import Image from './Components/Atoms/Image';
 import Profile from './Components/Molecules/Profile';
 import SocialCounter from './Components/Molecules/SocialCounter';
 import PostContent from './Components/Molecules/Post_Content';
+import SocialShare  from './Components/Organisms/SocialShare';
 
 // Helper Functions
 const fetchUser = async (setUser) => {
@@ -35,6 +36,27 @@ function App() {
     postRetweets: 23,
     postLikes: 345
   })
+
+  const Counters = [
+    {
+      SocialClass: 'socialComments',
+      ImageUrl: 'https://img.icons8.com/metro/26/000000/comments.png',
+      ImageAlt: 'Speech Bubble Icon',
+      Number: post.postComments
+    },
+    {
+      SocialClass: 'socialRetweets',
+      ImageUrl: 'https://img.icons8.com/material-sharp/24/000000/retweet.png',
+      ImageAlt: 'Retweet Icon',
+      Number: post.postRetweets
+    },
+    {
+      SocialClass: 'socialLikes',
+      ImageUrl: 'https://img.icons8.com/windows/32/000000/like.png',
+      ImageAlt: 'Likes Icon',
+      Number: post.postLikes
+    },
+  ];
 
   useEffect(() => {
     fetchUser(setUser);
@@ -67,29 +89,9 @@ function App() {
                   Url = {post.postUrl}
                   LinkText = "karlchvojka.com"
                 />
-                <section className="socialCounters">
-                  <SocialCounter
-                    SocialClass = 'socialComments'
-                    ImageUrl = 'https://img.icons8.com/metro/26/000000/comments.png'
-                    ImageAlt = 'Speech Bubble Icon'
-                    Number = {post.postComments}
-                  />
-                  <SocialCounter
-                    SocialClass = 'socialRetweets'
-                    ImageUrl = 'https://img.icons8.com/material-sharp/24/000000/retweet.png'
-                    ImageAlt = 'Retweet Icon'
-                    Number = {post.postRetweets}
-                  />
-                  <SocialCounter
-                    SocialClass = 'socialLikes'
-                    ImageUrl = 'https://img.icons8.com/windows/32/000000/like.png'
-                    ImageAlt = 'Likes Icon'
-                    Number = {post.postLikes}
-                  />
-                  <div className="socialSendDM">
-                    <Image url="https://img.icons8.com/windows/32/000000/secured-letter--v1.png" alt="Letter Icon" />
-                  </div>
-                </section>
+                <SocialShare
+                  counters = {Counters}
+                />
               </article>
             </section>
           </article>
