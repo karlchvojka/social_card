@@ -6,6 +6,7 @@ import './App.scss';
 // Component Imports
 import Image from './Components/Atoms/Image';
 import Profile from './Components/Molecules/Profile';
+import SocialCounter from './Components/Molecules/SocialCounter';
 
 // Helper Functions
 const fetchUser = async (setUser) => {
@@ -65,18 +66,24 @@ function App() {
                   <p><a href={post.postUrl}>karlchvojka.com</a></p>
                 </section>
                 <section className="socialCounters">
-                  <div className="socialComments">
-                    <Image url="https://img.icons8.com/metro/26/000000/comments.png" alt="Speech Bubble Icon" />
-                    <p>{post.postComments}</p>
-                  </div>
-                  <div className="socialRetweets">
-                    <Image url="https://img.icons8.com/material-sharp/24/000000/retweet.png" alt="Retweet Icon" />
-                    <p>{post.postRetweets}</p>
-                  </div>
-                  <div className="socialLikes">
-                    <Image url="https://img.icons8.com/windows/32/000000/like.png" alt="Likes Icon" />
-                    <p>{post.postLikes}</p>
-                  </div>
+                  <SocialCounter
+                    SocialClass = 'socialComments'
+                    ImageUrl = 'https://img.icons8.com/metro/26/000000/comments.png'
+                    ImageAlt = 'Speech Bubble Icon'
+                    Number = {post.postComments}
+                  />
+                  <SocialCounter
+                    SocialClass = 'socialRetweets'
+                    ImageUrl = 'https://img.icons8.com/material-sharp/24/000000/retweet.png'
+                    ImageAlt = 'Retweet Icon'
+                    Number = {post.postRetweets}
+                  />
+                  <SocialCounter
+                    SocialClass = 'socialLikes'
+                    ImageUrl = 'https://img.icons8.com/windows/32/000000/like.png'
+                    ImageAlt = 'Likes Icon'
+                    Number = {post.postLikes}
+                  />
                   <div className="socialSendDM">
                     <Image url="https://img.icons8.com/windows/32/000000/secured-letter--v1.png" alt="Letter Icon" />
                   </div>
