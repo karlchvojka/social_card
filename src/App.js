@@ -7,6 +7,7 @@ import './App.scss';
 import Image from './Components/Atoms/Image';
 import Profile from './Components/Molecules/Profile';
 import SocialCounter from './Components/Molecules/SocialCounter';
+import PostContent from './Components/Molecules/Post_Content';
 
 // Helper Functions
 const fetchUser = async (setUser) => {
@@ -25,7 +26,7 @@ function App() {
 
   const [post, setPost] = useState({
     postTitle: 'Developing JS applications with ReactJS',
-    postDesc: 'ReactJS is an amazing framework.Grapple shrouds stern crack Jennys tea cup Nelsons folly coxswain Sink me reef rigging tender. Broadside run a shot across the bow jack splice the main brace black spot bucko hardtack driver hands capstan.',
+    postExcerpt: 'ReactJS is an amazing framework.Grapple shrouds stern crack Jennys tea cup Nelsons folly coxswain Sink me reef rigging tender. Broadside run a shot across the bow jack splice the main brace black spot bucko hardtack driver hands capstan.',
     postUrl: 'https://karl.chvojka.com/blog/post-134',
     postAuth: "@KarlChvojka",
     postDate: "Oct 15",
@@ -60,11 +61,12 @@ function App() {
                 <section className="post_Image">
                   <Image url={post.postImg} alt="Tweet Image" />
                 </section>
-                <section>
-                  <h3>{post.postTitle}</h3>
-                  <p>{post.postDesc}</p>
-                  <p><a href={post.postUrl}>karlchvojka.com</a></p>
-                </section>
+                <PostContent
+                  Title = {post.postTitle}
+                  Excerpt = {post.postExcerpt}
+                  Url = {post.postUrl}
+                  LinkText = "karlchvojka.com"
+                />
                 <section className="socialCounters">
                   <SocialCounter
                     SocialClass = 'socialComments'
