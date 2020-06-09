@@ -1,11 +1,11 @@
 // Imports
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Styles/fonts.scss';
 import './App.scss';
 
+
 // Component Imports
-import Image from './Components/Atoms/Image';
-import ShareCardContent from './Components/Organisms/CardContent';
 import ShareCard from './Components/Templates/Card';
 
 // Helper Functions
@@ -20,9 +20,10 @@ const fetchUser = async (setUser) => {
 };
 
 function App() {
+  // Set State Defaults
   const [user, setUser] = useState({});
 
-  const [post, setPost] = useState({
+  const [post] = useState({
     postTitle: 'Developing JS applications with ReactJS',
     postExcerpt: 'ReactJS is an amazing framework.Grapple shrouds stern crack Jennys tea cup Nelsons folly coxswain Sink me reef rigging tender. Broadside run a shot across the bow jack splice the main brace black spot bucko hardtack driver hands capstan.',
     postUrl: 'https://karl.chvojka.com/blog/post-134',
@@ -34,6 +35,7 @@ function App() {
     postLikes: 345
   })
 
+  // Variable Declarations
   const Counters = [
     {
       SocialClass: 'socialComments',
