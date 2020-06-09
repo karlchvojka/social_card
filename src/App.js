@@ -1,7 +1,12 @@
+// Imports
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.scss';
 
+// Component Imports
+import Image from './Components/Atoms/Image';
+
+// Helper Functions
 const fetchUser = async (setUser) => {
   const result = await axios(
     "https://randomuser.me/api",
@@ -41,7 +46,7 @@ function App() {
           <article>
             <section className="social_Card_Wrap">
               <aside className="image_Wrap">
-                <img src={user.picture.thumbnail} alt={`Thumbnail for ${user.name.first} ${user.name.last}`} />
+                <Image url={user.picture.thumbnail} alt={`Thumbnail for ${user.name.first} ${user.name.last}`} />
               </aside>
               <article className="social_Card">
                 <header className="user_profile">
@@ -50,7 +55,7 @@ function App() {
                   <p>{'{'} author: {post.postAuth} {'}'}</p>
                 </header>
                 <section className="post_Image">
-                  <img src={post.postImg} />
+                  <Image url={post.postImg} alt="Tweet Image" />
                 </section>
                 <section>
                   <h3>{post.postTitle}</h3>
@@ -59,19 +64,19 @@ function App() {
                 </section>
                 <section className="socialCounters">
                   <div className="socialComments">
-                    <img src="https://img.icons8.com/metro/26/000000/comments.png" alt="Speech Bubble Icon"/>
+                    <Image url="https://img.icons8.com/metro/26/000000/comments.png" alt="Speech Bubble Icon" />
                     <p>{post.postComments}</p>
                   </div>
                   <div className="socialRetweets">
-                    <img src="https://img.icons8.com/material-sharp/24/000000/retweet.png" alt="Retweet Icon"/>
+                    <Image url="https://img.icons8.com/material-sharp/24/000000/retweet.png" alt="Retweet Icon" />
                     <p>{post.postRetweets}</p>
                   </div>
                   <div className="socialLikes">
-                    <img src="https://img.icons8.com/windows/32/000000/like.png" alt="Likes Icon"/>
+                    <Image url="https://img.icons8.com/windows/32/000000/like.png" alt="Likes Icon" />
                     <p>{post.postLikes}</p>
                   </div>
                   <div className="socialSendDM">
-                    <img src="https://img.icons8.com/windows/32/000000/secured-letter--v1.png" alt="Letter Icon"/>
+                    <Image url="https://img.icons8.com/windows/32/000000/secured-letter--v1.png" alt="Letter Icon" />
                   </div>
                 </section>
               </article>
