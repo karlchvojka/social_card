@@ -5,6 +5,7 @@ import './App.scss';
 
 // Component Imports
 import Image from './Components/Atoms/Image';
+import Profile from './Components/Molecules/Profile';
 
 // Helper Functions
 const fetchUser = async (setUser) => {
@@ -49,11 +50,12 @@ function App() {
                 <Image url={user.picture.thumbnail} alt={`Thumbnail for ${user.name.first} ${user.name.last}`} />
               </aside>
               <article className="social_Card">
-                <header className="user_profile">
-                  <p><b>The Dev Blog</b> @{user.login.username} &middot; {post.postDate}</p>
-                  <p>{post.postTitle}</p>
-                  <p>{'{'} author: {post.postAuth} {'}'}</p>
-                </header>
+                <Profile
+                  username = {user.login.username}
+                  postDate = {post.postDate}
+                  title = {post.postTitle}
+                  author = {post.postAuth}
+                />
                 <section className="post_Image">
                   <Image url={post.postImg} alt="Tweet Image" />
                 </section>
