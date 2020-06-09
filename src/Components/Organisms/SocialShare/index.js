@@ -11,13 +11,13 @@ function SocialShare(props) {
   return (
     <section className="socialCounters">
       {props.counters.map((counter, index) => (
-        <div className={counter.SocialClass}>
-          <Image
-            url={counter.ImageUrl}
-            alt={counter.ImageAlt}
-          />
-          <p>{counter.Number}</p>
-        </div>
+        <SocialCounter
+          key={index}
+          SocialClass = {counter.SocialClass}
+          ImageUrl = {counter.ImageUrl}
+          ImageAlt = {counter.ImageAlt}
+          Number = {counter.Number}
+        />
       ))}
       <div className="socialSendDM">
         <Image

@@ -5,10 +5,8 @@ import './App.scss';
 
 // Component Imports
 import Image from './Components/Atoms/Image';
-import Profile from './Components/Molecules/Profile';
-import SocialCounter from './Components/Molecules/SocialCounter';
-import PostContent from './Components/Molecules/Post_Content';
-import SocialShare  from './Components/Organisms/SocialShare';
+import ShareCardContent from './Components/Organisms/CardContent';
+import ShareCard from './Components/Templates/Card';
 
 // Helper Functions
 const fetchUser = async (setUser) => {
@@ -17,7 +15,6 @@ const fetchUser = async (setUser) => {
   );
   // set resource for reference purposes.
   let resource = result.data.results[0];
-  console.log(resource);
   // Set current User state
   setUser(resource);
 };
@@ -68,33 +65,12 @@ function App() {
       <div className="App">
         <header><h1>Social Card</h1></header>
         <main>
-          <article>
-            <section className="social_Card_Wrap">
-              <aside className="image_Wrap">
-                <Image url={user.picture.thumbnail} alt={`Thumbnail for ${user.name.first} ${user.name.last}`} />
-              </aside>
-              <article className="social_Card">
-                <Profile
-                  username = {user.login.username}
-                  postDate = {post.postDate}
-                  title = {post.postTitle}
-                  author = {post.postAuth}
-                />
-                <section className="post_Image">
-                  <Image url={post.postImg} alt="Tweet Image" />
-                </section>
-                <PostContent
-                  Title = {post.postTitle}
-                  Excerpt = {post.postExcerpt}
-                  Url = {post.postUrl}
-                  LinkText = "karlchvojka.com"
-                />
-                <SocialShare
-                  counters = {Counters}
-                />
-              </article>
-            </section>
-          </article>
+          <ShareCard
+            postClassName = 'social_Card_Wrap'
+            userData = {user}
+            postData = {post}
+            countersData = {Counters}
+          />
         </main>
       </div>
     :
