@@ -4,7 +4,7 @@ import './index.scss';
 function Profile(props) {
   return (
     <header className="user_profile">
-      <p><b>The Dev Blog</b> @{props.username} &middot; {props.postDate}</p>
+      <p><b>The Dev Blog</b><span className="postMeta"> @{props.username} &middot; {props.postDate}</span></p>
       <p>{props.title}</p>
       <p>{'{'} author: {props.author} {'}'}</p>
     </header>
