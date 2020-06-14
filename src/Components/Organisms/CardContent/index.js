@@ -17,6 +17,7 @@ function ShareCardContent(props) {
         postDate = {props.post.postDate}
         title = {props.post.postTitle}
         author = {props.post.postAuth}
+        authUrl = {props.post.postDomain}
       />
       <section className="post_Image">
         <Image url={props.post.postImg} alt="Tweet Image" />
