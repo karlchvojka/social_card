@@ -4,11 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This is a practice project for Karl Chvojka.
 
 ## MVP
-- Create a social card in the same design as other popular cards.
-- The card will pull in from a JS object
-- Can be repeated if there is multiple
-- Uses scss
-- Follows Atomic Design Principles.
+- Create a social card in the same design as other popular cards. [Done]
+- The card will pull in from a JS object [Done]
+- Can be repeated if there is multiple [Done]
+- Uses scss [Done]
+- Follows Atomic Design Principles. [Done]
 
 ## Stretch Goals
 - Pulls from Twitter or other Social Network
@@ -16,6 +16,9 @@ This is a practice project for Karl Chvojka.
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+Installs all required Node Modules.
 
 ### `npm start`
 
