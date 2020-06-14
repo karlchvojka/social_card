@@ -28,11 +28,11 @@
   }
 }
 
-.socialRetweets {
+.socialRetweets, .socialRetweets .counterNum p {
   color: green;
 }
 
-.socialLikes {
+.socialLikes, .socialLikes .counterNum p {
   color: red;
 }
 
