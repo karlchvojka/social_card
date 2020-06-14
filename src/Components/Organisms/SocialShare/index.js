@@ -3,8 +3,8 @@ import React from 'react';
 import './index.scss';
 
 // Other Component Imports
-import Image from '../../Atoms/Image';
 import SocialCounter from '../../Molecules/SocialCounter';
+import { AiOutlineRetweet } from 'react-icons/ai';
 
 function SocialShare(props) {
 
@@ -14,16 +14,14 @@ function SocialShare(props) {
         <SocialCounter
           key={index}
           SocialClass = {counter.SocialClass}
-          ImageUrl = {counter.ImageUrl}
-          ImageAlt = {counter.ImageAlt}
+          IconImg = {counter.Icon}
           Number = {counter.Number}
         />
       ))}
       <div className="socialSendDM">
-        <Image
-          url="https://img.icons8.com/windows/32/000000/secured-letter--v1.png"
-          alt="Letter Icon"
-        />
+        <div className="counterIcon">
+          <AiOutlineRetweet/>
+        </div>
       </div>
     </section>
   )

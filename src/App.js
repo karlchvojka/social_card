@@ -4,9 +4,11 @@ import axios from 'axios';
 import './Styles/fonts.scss';
 import './App.scss';
 
-
 // Component Imports
 import ShareCard from './Components/Templates/Card';
+import { GoComment } from "react-icons/go";
+import { AiOutlineRetweet } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
 
 // Helper Functions
 const fetchUser = async (setUser) => {
@@ -39,20 +41,17 @@ function App() {
   const Counters = [
     {
       SocialClass: 'socialComments',
-      ImageUrl: 'https://img.icons8.com/metro/26/000000/comments.png',
-      ImageAlt: 'Speech Bubble Icon',
+      Icon: <GoComment />,
       Number: post.postComments
     },
     {
       SocialClass: 'socialRetweets',
-      ImageUrl: 'https://img.icons8.com/material-sharp/24/000000/retweet.png',
-      ImageAlt: 'Retweet Icon',
+      Icon: <AiOutlineRetweet />,
       Number: post.postRetweets
     },
     {
       SocialClass: 'socialLikes',
-      ImageUrl: 'https://img.icons8.com/windows/32/000000/like.png',
-      ImageAlt: 'Likes Icon',
+      Icon: <AiOutlineHeart />,
       Number: post.postLikes
     },
   ];
