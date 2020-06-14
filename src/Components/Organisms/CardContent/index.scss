@@ -1,0 +1,59 @@
+@import '../../../Styles/variables.scss';
+@import '../../../Styles/fonts.scss';
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+.social_Card {
+  .post_Image {
+    img {
+      border-radius: 10px 10px 0px 0px;
+      display:block;
+      height:auto;
+      object-fit:cover;
+      width:100%;
+    }
+  }
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .social_Card {
+    .post_Image {
+      img {
+        border-radius: 10px 10px 0px 0px;
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .social_Card {
+    .post_Image {
+      img {
+        border-radius: 10px 10px 0px 0px;
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .social_Card {
+    .post_Image {
+      img {
+        border-radius: 10px 10px 0px 0px;
+      }
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .social_Card {
+    .post_Image {
+      img {
+        border-radius: 10px 10px 0px 0px;
+      }
+    }
+  }
+}

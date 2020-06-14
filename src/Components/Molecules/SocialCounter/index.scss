@@ -1,0 +1,77 @@
+.socialCounter {
+  display:grid;
+  grid-template-columns: auto 60%;
+
+  div {
+    display:flex;
+    align-items: center;
+    justify-content: center
+  }
+  .counterIcon {
+    width: auto;
+
+    svg {
+      width:20px;
+      height:auto;
+    }
+  }
+  .counterNum {
+    width: auto;
+
+    p {
+      font-size:14px;
+      font-weight: 700;
+      line-height:12px;
+      margin-bottom:0px;
+      text-align:left;
+    }
+  }
+}
+
+.socialRetweets {
+  color: green;
+}
+
+.socialLikes {
+  color: red;
+}
+
+
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .socialCounter {
+    .counterNum {
+      width: 60%;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .socialCounter {
+    .counterNum {
+      width: 25%;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .socialCounter {
+    .counterNum {
+      width: 25%;
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .socialCounter {
+    .counterNum {
+      width: 25%;
+    }
+  }
+}
