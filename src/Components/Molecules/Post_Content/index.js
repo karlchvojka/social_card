@@ -9,7 +9,7 @@ function PostContent(props) {
     <section className="post_Content">
       <h3>{props.Title}</h3>
       <p>{props.Excerpt}</p>
-      <p><a href={props.Url}>{props.LinkText}</a></p>
+      <p className="postLink"><a href={props.Url}>{props.LinkText}</a></p>
     </section>
   )
 }
