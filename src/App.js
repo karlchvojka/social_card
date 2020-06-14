@@ -28,7 +28,8 @@ function App() {
   const [post] = useState({
     postTitle: 'Developing JS applications with ReactJS',
     postExcerpt: 'ReactJS is an amazing framework.Grapple shrouds stern crack Jennys tea cup Nelsons folly coxswain Sink me reef rigging tender. Broadside run a shot across the bow jack splice the main brace black spot bucko hardtack driver hands capstan.',
-    postUrl: 'https://karl.chvojka.com/blog/post-134',
+    postUrl: 'https://karlchvojka.com/blog/post-134',
+    postDomain: 'https://karlchvojka.com',
     postAuth: "@KarlChvojka",
     postDate: "Oct 15",
     postImg: "/developer.jpeg",
