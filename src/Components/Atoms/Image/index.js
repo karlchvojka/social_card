@@ -1,8 +1,14 @@
 import React from 'react';
 import './index.scss';
 
-function Image(props) {
-  return <img src={props.url} alt={props.alt} />
-}
+const Image = ({
+  alt = '',
+  url = '',
+}) => (
+  <img
+    alt={alt}
+    src={url}
+  />
+);
 
 export default Image;

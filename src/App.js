@@ -5,10 +5,8 @@ import './Styles/fonts.scss';
 import './App.scss';
 
 // Component Imports
-import ShareCard from './Components/Templates/Card';
-import { GoComment } from "react-icons/go";
-import { AiOutlineRetweet } from "react-icons/ai";
-import { AiOutlineHeart } from "react-icons/ai";
+import ShareCard from './Components/Templates/ShareCard';
+
 
 // Helper Functions
 const fetchUser = async (setUser) => {
@@ -17,6 +15,7 @@ const fetchUser = async (setUser) => {
   );
   // set resource for reference purposes.
   let resource = result.data.results[0];
+
   // Set current User state
   setUser(resource);
 };
@@ -25,6 +24,7 @@ function App() {
   // Set State Defaults
   const [user, setUser] = useState({});
 
+  // TODO: Change out for Object, not state
   const [post] = useState({
     postTitle: 'Developing JS applications with ReactJS',
     postExcerpt: 'ReactJS is an amazing framework.Grapple shrouds stern crack Jennys tea cup Nelsons folly coxswain Sink me reef rigging tender. Broadside run a shot across the bow jack splice the main brace black spot bucko hardtack driver hands capstan.',
@@ -37,25 +37,6 @@ function App() {
     postRetweets: 23,
     postLikes: 345
   })
-
-  // Variable Declarations
-  const Counters = [
-    {
-      SocialClass: 'socialComments',
-      Icon: <GoComment />,
-      Number: post.postComments
-    },
-    {
-      SocialClass: 'socialRetweets',
-      Icon: <AiOutlineRetweet />,
-      Number: post.postRetweets
-    },
-    {
-      SocialClass: 'socialLikes',
-      Icon: <AiOutlineHeart />,
-      Number: post.postLikes
-    },
-  ];
 
   useEffect(() => {
     fetchUser(setUser);
@@ -71,7 +52,6 @@ function App() {
             postClassName = 'social_Card_Wrap'
             userData = {user}
             postData = {post}
-            countersData = {Counters}
           />
         </main>
       </div>

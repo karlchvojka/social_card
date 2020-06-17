@@ -7,9 +7,15 @@ import './index.scss';
 function PostContent(props) {
   return (
     <section className="post_Content">
-      <h3>{props.Title}</h3>
-      <p>{props.Excerpt}</p>
-      <p className="postLink"><a href={props.Url}>{props.LinkText}</a></p>
+      <h3>{props.title}</h3>
+
+      <p>{props.excerpt}</p>
+
+      <p className="postLink">
+        <a href={props.url}>
+          {props.linkText}
+        </a>
+      </p>
     </section>
   )
 }

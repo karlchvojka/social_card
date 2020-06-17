@@ -6,12 +6,12 @@ import './index.scss';
 
 function SocialCounter(props) {
   return (
-    <div className={`socialCounter ${props.SocialClass}`}>
+    <div className={`socialCounter ${props.socialClass}`}>
       <div className="counterIcon">
-        {props.IconImg}
+        < props.IconImg />
       </div>
       <div className="counterNum">
-        <p>{props.Number}</p>
+        <p>{props.number}</p>
       </div>
     </div>
   )
