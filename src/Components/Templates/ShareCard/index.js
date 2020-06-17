@@ -4,7 +4,7 @@ import './index.scss';
 
 // Other Component Imports
 import Image from '../../Atoms/Image'
-import ShareCardContent from '../../Organisms/CardContent';
+import ShareCardContent from '../../Organisms/SharedCardContent';
 
 const ShareCard = ({
   userData = {
@@ -25,7 +25,7 @@ const ShareCard = ({
         url={userData.picture.thumbnail}
       />
     </aside>
-    
+
     <ShareCardContent
       user={userData}
       post={postData}

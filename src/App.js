@@ -26,16 +26,16 @@ function App() {
 
   // TODO: Change out for Object, not state
   const [post] = useState({
-    postTitle: 'Developing JS applications with ReactJS',
-    postExcerpt: 'ReactJS is an amazing framework.Grapple shrouds stern crack Jennys tea cup Nelsons folly coxswain Sink me reef rigging tender. Broadside run a shot across the bow jack splice the main brace black spot bucko hardtack driver hands capstan.',
-    postUrl: 'https://karlchvojka.com/blog/post-134',
-    postDomain: 'https://karlchvojka.com',
-    postAuth: "@KarlChvojka",
-    postDate: "Oct 15",
-    postImg: "/developer.jpeg",
-    postComments: 2,
-    postRetweets: 23,
-    postLikes: 345
+    title: 'Developing JS applications with ReactJS',
+    excerpt: 'ReactJS is an amazing framework.Grapple shrouds stern crack Jennys tea cup Nelsons folly coxswain Sink me reef rigging tender. Broadside run a shot across the bow jack splice the main brace black spot bucko hardtack driver hands capstan.',
+    url: 'https://karlchvojka.com/blog/post-134',
+    domain: 'https://karlchvojka.com',
+    auth: "@KarlChvojka",
+    date: "Oct 15",
+    img: "/developer.jpeg",
+    comments: 2,
+    retweets: 23,
+    likes: 345
   })
 
   useEffect(() => {

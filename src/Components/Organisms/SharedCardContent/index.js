@@ -10,16 +10,16 @@ import SocialShare from '../../../Components/Organisms/SocialShare';
 
 const ShareCardContent = ({
   post = {
-    postAuth: '',
-    postComments: '',
-    postDate: '',
-    postDomain: '',
-    postExcerpt: '',
-    postImg: '',
-    postLikes: '',
-    postRetweets: '',
-    postTitle: '',
-    postUrl: '',
+    auth: '',
+    comments: '',
+    date: '',
+    domain: '',
+    excerpt: '',
+    img: '',
+    likes: '',
+    retweets: '',
+    title: '',
+    url: '',
   },
   user = {
     login: {
@@ -29,31 +29,31 @@ const ShareCardContent = ({
 }) => (
   <article className="social_Card">
     <Profile
-      author={post.postAuth}
-      authUrl={post.postDomain}
-      postDate={post.postDate}
-      title={post.postTitle}
+      author={post.auth}
+      authUrl={post.domain}
+      postDate={post.date}
+      title={post.title}
       username={user.login.username}
     />
 
     <section className="post_Image">
       <Image
         alt="Tweet Image"
-        url={post.postImg}
+        url={post.img}
       />
     </section>
 
     <PostContent
-      excerpt={post.postExcerpt}
+      excerpt={post.excerpt}
       linkText="karlchvojka.com"
-      title={post.postTitle}
-      url={post.postUrl}
+      title={post.title}
+      url={post.url}
     />
 
     <SocialShare
-      comments={post.postComments}
-      likes={post.postLikes}
-      retweets={post.postRetweets}
+      comments={post.comments}
+      likes={post.likes}
+      retweets={post.retweets}
     />
   </article>
 );
