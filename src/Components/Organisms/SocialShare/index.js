@@ -4,27 +4,45 @@ import './index.scss';
 
 // Other Component Imports
 import SocialCounter from '../../Molecules/SocialCounter';
+import { AiOutlineHeart } from "react-icons/ai";
 import { AiOutlineRetweet } from 'react-icons/ai';
+import { GoComment } from "react-icons/go";
 
-function SocialShare(props) {
+// Variable Declarations
+const counters = {
+  comments: {
+    Icon: GoComment,
+    socialClass: 'socialComments',
+  },
 
-  return (
-    <section className="socialCounters">
-      {props.counters.map((counter, index) => (
-        <SocialCounter
-          key={index}
-          SocialClass = {counter.SocialClass}
-          IconImg = {counter.Icon}
-          Number = {counter.Number}
-        />
-      ))}
-      <div className="socialSendDM">
-        <div className="counterIcon">
-          <AiOutlineRetweet/>
-        </div>
+  likes: {
+    Icon: AiOutlineHeart,
+    socialClass: 'socialLikes',
+  },
+
+  retweets: {
+    Icon: AiOutlineRetweet,
+    socialClass: 'socialRetweets',
+  },
+};
+
+const SocialShare = (props) => (
+  <section className="socialCounters">
+    {Object.keys(counters).map(counter => (
+      <SocialCounter
+        IconImg={counters[counter].Icon}
+        key={counter}
+        number={props[counter]}
+        socialClass={counters[counter].socialClass}
+      />
+    ))}
+
+    <div className="socialSendDM">
+      <div className="counterIcon">
+        <AiOutlineRetweet/>
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+);
 
 export default SocialShare;

@@ -4,17 +4,20 @@ import './index.scss';
 
 // Other Component Imports
 
-function SocialCounter(props) {
-  return (
-    <div className={`socialCounter ${props.SocialClass}`}>
-      <div className="counterIcon">
-        {props.IconImg}
-      </div>
-      <div className="counterNum">
-        <p>{props.Number}</p>
-      </div>
+const SocialCounter = ({
+  IconImg = '',
+  number = '',
+  socialClass = '',
+}) => (
+  <div className={`socialCounter ${socialClass}`}>
+    <div className="counterIcon">
+      < IconImg />
     </div>
-  )
-}
+
+    <div className="counterNum">
+      <p>{number}</p>
+    </div>
+  </div>
+);
 
 export default SocialCounter;
