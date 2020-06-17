@@ -25,6 +25,7 @@ const ShareCard = ({
         url={userData.picture.thumbnail}
       />
     </aside>
+    
     <ShareCardContent
       user={userData}
       post={postData}
