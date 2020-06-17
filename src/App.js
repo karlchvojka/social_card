@@ -49,9 +49,9 @@ function App() {
         <header><h1>Social Card</h1></header>
         <main>
           <ShareCard
-            postClassName = 'social_Card_Wrap'
-            postData = {post}
-            userData = {user}
+            postClassName='social_Card_Wrap'
+            postData={post}
+            userData={user}
           />
         </main>
       </div>

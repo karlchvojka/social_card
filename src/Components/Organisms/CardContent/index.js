@@ -29,10 +29,10 @@ const ShareCardContent = ({
 }) => (
   <article className="social_Card">
     <Profile
-      author = {post.postAuth}
-      authUrl = {post.postDomain}
-      postDate = {post.postDate}
-      title = {post.postTitle}
+      author={post.postAuth}
+      authUrl={post.postDomain}
+      postDate={post.postDate}
+      title={post.postTitle}
       username={user.login.username}
     />
 
@@ -44,10 +44,10 @@ const ShareCardContent = ({
     </section>
 
     <PostContent
-      excerpt = {post.postExcerpt}
-      linkText = "karlchvojka.com"
-      title = {post.postTitle}
-      url = {post.postUrl}
+      excerpt={post.postExcerpt}
+      linkText="karlchvojka.com"
+      title={post.postTitle}
+      url={post.postUrl}
     />
 
     <SocialShare
