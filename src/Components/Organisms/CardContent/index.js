@@ -5,39 +5,57 @@ import './index.scss';
 // Other Component Imports
 import Image from '../../../Components/Atoms/Image';
 import Profile from '../../../Components/Molecules/Profile';
-import PostContent from '../../../Components/Molecules/Post_Content';
+import PostContent from '../../../Components/Molecules/PostContent';
 import SocialShare from '../../../Components/Organisms/SocialShare';
 
-function ShareCardContent(props) {
+const ShareCardContent = ({
+  post = {
+    postAuth: '',
+    postComments: '',
+    postDate: '',
+    postDomain: '',
+    postExcerpt: '',
+    postImg: '',
+    postLikes: '',
+    postRetweets: '',
+    postTitle: '',
+    postUrl: '',
+  },
+  user = {
+    login: {
+      username: ''
+    }
+  }
+}) => (
+  <article className="social_Card">
+    <Profile
+      author = {post.postAuth}
+      authUrl = {post.postDomain}
+      postDate = {post.postDate}
+      title = {post.postTitle}
+      username={user.login.username}
+    />
 
-  return (
-    <article className="social_Card">
-      <Profile
-        username={ props.user.login.username }
-        postDate = {props.post.postDate}
-        title = {props.post.postTitle}
-        author = {props.post.postAuth}
-        authUrl = {props.post.postDomain}
+    <section className="post_Image">
+      <Image
+        alt="Tweet Image"
+        url={post.postImg}
       />
+    </section>
 
-      <section className="post_Image">
-        <Image url={props.post.postImg} alt="Tweet Image" />
-      </section>
+    <PostContent
+      excerpt = {post.postExcerpt}
+      linkText = "karlchvojka.com"
+      title = {post.postTitle}
+      url = {post.postUrl}
+    />
 
-      <PostContent
-        title = {props.post.postTitle}
-        excerpt = {props.post.postExcerpt}
-        url = {props.post.postUrl}
-        linkText = "karlchvojka.com"
-      />
-
-      <SocialShare
-        comments={props.post.postComments}
-        retweets={props.post.postRetweets}
-        likes={props.post.postLikes}
-      />
-    </article>
-  )
-}
+    <SocialShare
+      comments={post.postComments}
+      likes={post.postLikes}
+      retweets={post.postRetweets}
+    />
+  </article>
+);
 
 export default ShareCardContent;

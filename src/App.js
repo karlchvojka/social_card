@@ -50,8 +50,8 @@ function App() {
         <main>
           <ShareCard
             postClassName = 'social_Card_Wrap'
-            userData = {user}
             postData = {post}
+            userData = {user}
           />
         </main>
       </div>

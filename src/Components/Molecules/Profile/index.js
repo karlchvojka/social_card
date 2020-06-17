@@ -1,35 +1,39 @@
 import React from 'react';
 import './index.scss';
 
-function Profile(props) {
-  return (
-    <header className="user_profile">
-      <p className="titleLine">
-        <b>The Dev Blog</b>
+const Profile = ({
+  author = '',
+  authorUrl = '',
+  postDate = '',
+  title = '',
+  username = '',
+}) => (
+  <header className="user_profile">
+    <p className="titleLine">
+      <b>The Dev Blog</b>
 
-        <span className="postMeta">
-          {`@${props.username} \u{000B7} ${props.postDate}`}
-        </span>
-      </p>
+      <span className="postMeta">
+        {`@${username} \u{000B7} ${postDate}`}
+      </span>
+    </p>
 
-      <p>
-        {props.title}
-      </p>
+    <p>
+      {title}
+    </p>
 
-      <p>
-        {'{ author: '}
+    <p>
+      {'{ author: '}
 
-        <a
-          alt={props.username}
-          href={props.authUrl}
+      <a
+        alt={username}
+        href={authorUrl}
         >
-          {props.author}
-        </a>
+          {author}
+      </a>
 
-        {' }'}
-      </p>
-    </header>
-  )
-}
+      {' }'}
+    </p>
+  </header>
+);
 
 export default Profile;

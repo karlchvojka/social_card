@@ -6,21 +6,30 @@ import './index.scss';
 import Image from '../../Atoms/Image'
 import ShareCardContent from '../../Organisms/CardContent';
 
-function ShareCard(props) {
-  return (
-    <article className="social_Card_Wrap">
-      <aside className="image_Wrap">
-        <Image
-          alt={`Thumbnail for ${props.userData.name.first} ${props.userData.name.last}`}
-          url={props.userData.picture.thumbnail}
-        />
-      </aside>
-      <ShareCardContent
-        user={props.userData}
-        post={props.postData}
+const ShareCard = ({
+  userData = {
+    name: {
+      first: '',
+      last: '',
+      picture: {
+        thumbnail: ''
+      }
+    }
+  },
+  postData = {}
+}) => (
+  <article className="social_Card_Wrap">
+    <aside className="image_Wrap">
+      <Image
+        alt={`Thumbnail for ${userData.name.first} ${userData.name.last}`}
+        url={userData.picture.thumbnail}
       />
-    </article>
-  )
-}
+    </aside>
+    <ShareCardContent
+      user={userData}
+      post={postData}
+    />
+  </article>
+);
 
 export default ShareCard;

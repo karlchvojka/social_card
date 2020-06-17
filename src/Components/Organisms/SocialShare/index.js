@@ -11,40 +11,38 @@ import { GoComment } from "react-icons/go";
 // Variable Declarations
 const counters = {
   comments: {
-    socialClass: 'socialComments',
     Icon: GoComment,
-  },
-
-  retweets: {
-    socialClass: 'socialRetweets',
-    Icon: AiOutlineRetweet,
+    socialClass: 'socialComments',
   },
 
   likes: {
-    socialClass: 'socialLikes',
     Icon: AiOutlineHeart,
+    socialClass: 'socialLikes',
+  },
+
+  retweets: {
+    Icon: AiOutlineRetweet,
+    socialClass: 'socialRetweets',
   },
 };
 
-function SocialShare(props) {
-  return (
-    <section className="socialCounters">
-      {Object.keys(counters).map(counter => (
-        <SocialCounter
-          key={counter}
-          socialClass={counters[counter].socialClass}
-          IconImg={counters[counter].Icon}
-          number={props[counter]}
-        />
-      ))}
-      
-      <div className="socialSendDM">
-        <div className="counterIcon">
-          <AiOutlineRetweet/>
-        </div>
+const SocialShare = (props) => (
+  <section className="socialCounters">
+    {Object.keys(counters).map(counter => (
+      <SocialCounter
+        IconImg={counters[counter].Icon}
+        key={counter}
+        number={props[counter]}
+        socialClass={counters[counter].socialClass}
+      />
+    ))}
+
+    <div className="socialSendDM">
+      <div className="counterIcon">
+        <AiOutlineRetweet/>
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+);
 
 export default SocialShare;
