@@ -44,19 +44,16 @@ function App() {
 
   return (
     // check to see if the user obj has a first name
-    Object.keys(user).length > 0 ?
-      <div className="App">
-        <header><h1>Social Card</h1></header>
-        <main>
-          <ShareCard
-            postClassName='social_Card_Wrap'
-            postData={post}
-            userData={user}
-          />
-        </main>
-      </div>
-    :
-      <h2>Loading...</h2>
+    <div className="App">
+      <header><h1>Social Card</h1></header>
+      <main>
+        <ShareCard
+          postClassName='social_Card_Wrap'
+          postData={post}
+          userData={user}
+        />
+      </main>
+    </div>
   );
 }
 
