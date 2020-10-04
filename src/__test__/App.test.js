@@ -8,16 +8,16 @@ Enzyme.configure({ adapter: new Adapter() })
 const wrapper = shallow(<App />);
 
 describe('<App /> rendering', () => {
-  it("renders App component without crashing", () => {
+  it("renders the App component without crashing", () => {
     shallow(<App />);
   });
 
-  it("renders App component header without crashing", () => {
+  it("renders the App component header without crashing", () => {
     const header = (<header><h1>Social Card</h1></header>);
     expect(wrapper.contains(header)).toEqual(true);
   });
 
-  it("renders App component Main without crashing", () => {
+  it("renders App the component Main without crashing", () => {
     expect(wrapper.find('main')).toHaveLength(1);
   });
 });

@@ -15,7 +15,7 @@ const PostContent = ({
 
     <p>{excerpt}</p>
 
-    <p className="postLink">
+    <p className="postLink" data-testid="postLink">
       <a
         alt={linkText}
         href={url}

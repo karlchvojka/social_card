@@ -6,8 +6,8 @@ import Image from '../Components/Atoms/Image';
 Enzyme.configure({ adapter: new Adapter() })
 
 
-describe('<Image /> rendering', () => {
-  it("renders App component without crashing", () => {
+describe('<Image/> rendering', () => {
+  it("renders Image component without crashing", () => {
     shallow(<Image />);
   });
 })
