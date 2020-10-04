@@ -9,7 +9,7 @@ const wrapper = shallow(<App />);
 
 describe('<App /> rendering', () => {
   it("renders the App component without crashing", () => {
-    shallow(<App />);
+    expect(wrapper.find('div')).toHaveLength(1);
   });
 
   it("renders the App component header without crashing", () => {
@@ -17,7 +17,11 @@ describe('<App /> rendering', () => {
     expect(wrapper.contains(header)).toEqual(true);
   });
 
-  it("renders App the component Main without crashing", () => {
+  it("renders the App component main without crashing", () => {
     expect(wrapper.find('main')).toHaveLength(1);
+  });
+
+  it("renders the ShareCard component", () => {
+    expect(wrapper.find('ShareCard')).toHaveLength(1);
   });
 });
