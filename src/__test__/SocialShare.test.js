@@ -6,7 +6,7 @@ import SocialShare from '../Components/Organisms/SocialShare';
 Enzyme.configure({ adapter: new Adapter() })
 
 const wrapper = shallow(<SocialShare />);
-console.log(wrapper.debug());
+
 describe('<SocialShare /> rendering', () => {
   it("renders App component without crashing", () => {
     expect(wrapper.find('.socialCounters')).toHaveLength(1);
