@@ -5,9 +5,22 @@ import ShareCard from '../Components/Templates/ShareCard';
 
 Enzyme.configure({ adapter: new Adapter() })
 
+const wrapper = shallow(<ShareCard />);
 
 describe('<ShareCard /> rendering', () => {
-  it("renders App component without crashing", () => {
-    shallow(<ShareCard />);
+  it("renders ShareCard component without crashing", () => {
+    expect(wrapper.find('article')).toHaveLength(1);
   });
+
+  it("renders an aside", () => {
+    expect(wrapper.find('aside')).toHaveLength(1);
+  });
+
+  it("renders the Image Component", () => {
+    expect(wrapper.find('Image')).toHaveLength(1);
+  });
+
+  it("renders the SharedCardContent Component", () => {
+    expect(wrapper.find('ShareCardContent')).toHaveLength(1);
+  })
 })
