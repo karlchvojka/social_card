@@ -22,5 +22,5 @@ describe('<ShareCard /> rendering', () => {
 
   it("renders the SharedCardContent Component", () => {
     expect(wrapper.find('ShareCardContent')).toHaveLength(1);
-  })
-})
+  });
+});
