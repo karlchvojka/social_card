@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import '@testing-library/jest-dom'
 import PostContent from '../Components/Molecules/PostContent';
@@ -23,5 +23,30 @@ describe('<PostContent /> rendering', () => {
 
   it("renders two p tags without crashing", () => {
     expect(wrapper.find('a')).toHaveLength(1);
+  });
+})
+
+describe("<PostContent /> props tests", () => {
+  const post = {
+    excerpt: "A test excerpt",
+    linkText: "Go To Google",
+    title: "A test title",
+    url: "http://www.google.com"
+  };
+
+  const postContentWrapper = mount(
+    <PostContent
+    excerpt={post.excerpt}
+    linkText={post.linkText}
+    title={post.title}
+    url={post.url}
+    />
+  );
+
+  it("Accepts the props", () => {
+    expect(postContentWrapper.props().excerpt).toEqual(post.excerpt);
+    expect(postContentWrapper.props().linkText).toEqual(post.linkText);
+    expect(postContentWrapper.props().title).toEqual(post.title);
+    expect(postContentWrapper.props().url).toEqual(post.url);
   });
 })
