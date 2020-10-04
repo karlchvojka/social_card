@@ -4,17 +4,17 @@ import './index.scss';
 
 // Other Component Imports
 import Image from '../../Atoms/Image'
-import ShareCardContent from '../../Organisms/SharedCardContent';
+import ShareCardContent from '../../Organisms/ShareCardContent';
 
 const ShareCard = ({
   userData = {
     name: {
       first: '',
       last: '',
-      picture: {
-        thumbnail: ''
-      }
-    }
+    },
+    picture: {
+      thumbnail: ''
+    },
   },
   postData = {}
 }) => (
