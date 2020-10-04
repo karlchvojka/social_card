@@ -1,6 +1,7 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { GoComment } from "react-icons/go";
 import SocialCounter from '../Components/Molecules/SocialCounter';
 
 Enzyme.configure({ adapter: new Adapter() })
@@ -23,4 +24,31 @@ describe("<SocialCounter /> rendering", () => {
   it("renders one p tag for the counterNum section", () => {
     expect(wrapper.find('p')).toHaveLength(1);
   })
+});
+
+describe("<ShareCard /> props tests", () => {
+
+  const counters = {
+    comments: {
+      Icon: GoComment,
+      socialClass: 'socialComments',
+      name: "comments",
+      number: 121
+    },
+  };
+
+  const socialCounterWrapper = mount(
+    <SocialCounter
+      IconImg={counters.comments.Icon}
+      key={counters.comments.name}
+      number={counters.comments.number}
+      socialClass={counters.comments.socialClass}
+    />
+  );
+
+  it("Accepts the props", () => {
+    expect(socialCounterWrapper.props().IconImg).toEqual(counters.comments.Icon);
+    expect(socialCounterWrapper.props().number).toEqual(counters.comments.number);
+    expect(socialCounterWrapper.props().socialClass).toEqual(counters.comments.socialClass);
+  });
 })
