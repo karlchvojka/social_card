@@ -1,28 +1,68 @@
 // Imports
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import './Styles/fonts.scss';
 import './App.scss';
 
 // Component Imports
 import ShareCard from './Components/Templates/ShareCard';
 
-
-// Helper Functions
-const fetchUser = async (setUser) => {
-  const result = await axios(
-    "https://randomuser.me/api",
-  );
-  // set resource for reference purposes.
-  let resource = result.data.results[0];
-
-  // Set current User state
-  setUser(resource);
-};
-
 function App() {
   // Set State Defaults
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    "gender": "female",
+    "name": {
+      "title": "Mrs",
+      "first": "Margaretha",
+      "last": "Kutzner"
+    },
+    "location": {
+      "street": {
+        "number": 8403,
+        "name": "Kirchplatz"
+      },
+      "city": "Nebra (Unstrut)",
+      "state": "Mecklenburg-Vorpommern",
+      "country": "Germany",
+      "postcode": 11294,
+      "coordinates": {
+        "latitude": "-44.2070",
+        "longitude": "133.0048"
+      },
+      "timezone": {
+        "offset": "-1:00",
+        "description": "Azores, Cape Verde Islands"
+      }
+    },
+    "email": "margaretha.kutzner@example.com",
+    "login": {
+      "uuid": "a7a6d897-09aa-4f39-90d3-abab416bfc10",
+      "username": "blueostrich730",
+      "password": "stocking",
+      "salt": "MPO8mJvd",
+      "md5": "5d2f41035c0f71f9343b418c995b09fd",
+      "sha1": "0330546837cf3a437d6463475ae14bc28d4fcba6",
+      "sha256": "9efc2f0e1754af9d87102fb4108d0b4871d8cccfa50cade10f550c7f609d0cb4"
+    },
+    "dob": {
+      "date": "1979-10-01T03:37:21.011Z",
+      "age": 41
+    },
+    "registered": {
+      "date": "2014-04-16T04:34:14.740Z",
+      "age": 6
+    },
+    "phone": "0037-9700433",
+    "cell": "0179-8525207",
+    "id": {
+      "name": "",
+      "value": null
+    },
+    "picture": {
+      "large": "https://randomuser.me/api/portraits/women/24.jpg",
+      "medium": "https://randomuser.me/api/portraits/med/women/24.jpg",
+      "thumbnail": "https://randomuser.me/api/portraits/thumb/women/24.jpg"
+    }
+  });
 
   // TODO: Change out for Object, not state
   const [post] = useState({
@@ -37,10 +77,6 @@ function App() {
     retweets: 23,
     likes: 345
   })
-
-  useEffect(() => {
-    fetchUser(setUser);
-   }, []);
 
   return (
     // check to see if the user obj has a first name

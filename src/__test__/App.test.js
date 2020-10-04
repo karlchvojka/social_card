@@ -1,35 +1,23 @@
 import React from 'react';
-import Enzyme, { shallow, render, mount } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import axios from 'axios';
+import App from '../App.js';
 
 Enzyme.configure({ adapter: new Adapter() })
 
-import App from '../App.js';
-
-let wrapper;
-beforeEach(() => {
-  wrapper = shallow(<App />);
-})
+const wrapper = shallow(<App />);
 
 describe('<App /> rendering', () => {
-  it('should render one <header>', () => {
-    expect(wrapper.find('header')).toHaveLength(1);
+  it("renders App component without crashing", () => {
+    shallow(<App />);
   });
 
-  it('should render one h1', () => {
-    expect(wrapper.find('h1')).toHaveLength(1)
+  it("renders App component header without crashing", () => {
+    const header = (<header><h1>Social Card</h1></header>);
+    expect(wrapper.contains(header)).toEqual(true);
   });
 
-  it('should set user', done => {
-    const response = {
-      data: {
-        results: [
-        ]
-      }
-    }
-    const mock = new MockAdapter(axios);
-    mock.onGet('https://randomuser.me/api').reply(200, )
-  })
-})
+  it("renders App component Main without crashing", () => {
+    expect(wrapper.find('main')).toHaveLength(1);
+  });
+});
