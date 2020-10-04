@@ -9,15 +9,15 @@ const SocialCounter = ({
   number = '',
   socialClass = '',
 }) => (
-  <div className={`socialCounter ${socialClass}`}>
-    <div className="counterIcon">
-      < IconImg />
-    </div>
+  <section className={`socialCounter ${socialClass}`}>
+    <section className="counterIcon">
+      <IconImg />
+    </section>
 
-    <div className="counterNum">
+    <section className="counterNum">
       <p>{number}</p>
-    </div>
-  </div>
+    </section>
+  </section>
 );
 
 export default SocialCounter;
