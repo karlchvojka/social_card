@@ -14,7 +14,8 @@ module.exports = {
     "<rootDir>/public/",
     "<rootDir>/src/setupTests.js",
     "<rootDir>/src/serviceWorker.js",
-    "<rootDir>/node_modules"
+    "<rootDir>/node_modules",
+    "<rootDir>/src/index.js"
   ],
   testEnvironment: 'jsdom',
 };
